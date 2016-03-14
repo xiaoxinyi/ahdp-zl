@@ -8,7 +8,7 @@ using namespace std;
 
 namespace ahdp {
 
-	class Table;
+class Table;
 
 // Word has an id, an author id, a table assignment.
 class Word {
@@ -37,5 +37,7 @@ private:
 	Table* table_;
 	
 };
+
+
 } // ahdp
 #endif
