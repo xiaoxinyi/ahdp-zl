@@ -38,6 +38,13 @@ private:
 	
 };
 
+class WordUtils {
+public:
+	static void UpdateAuthorFromWord(Word* word, int author_id, int update);
+
+	static void UpdateTableFromWord(Word* word, int author_id, int update);
+};
+
 class Author;
 
 class Document {
@@ -87,6 +94,8 @@ public:
 
 	// Permute words in the document.
 	static void PermuteWords(Document* document);
+
+	static void SampleAuthorForWord(Document* document, Word* word, bool remove);
 };
 
 

@@ -5,6 +5,7 @@
 #include "utils.h"
 #include "document.h"
 #include "author.h"
+#include "table.h"
 
 namespace ahdp {
 
@@ -17,6 +18,40 @@ Word::Word(int id)
 			author_id_(-1),
 			table_(nullptr) {
 
+}
+
+// =======================================================================
+// WordUtils
+// =======================================================================
+
+void WordUtils::UpdateAuthorFromWord(Word* word,  
+																		int update) {
+	int author_id = word->getAuthorId();
+	if (author_id == -1 && update == -1) return;
+	assert(author_id != -1);
+
+	AllAuthors& all_authors = AllAuthors::GetInstance();
+	Author* author = all_authors.getMutableAuthor(author_id);
+	author->updateWordCount(update);
+
+	if (update == -1) {	
+		author->removeWord(word);
+	} 
+
+	if (update == 1) {
+		author->addWord(word);
+	}
+}
+
+void WordUtils::UpdateTableFromWord(Word* word,
+																		int update) {
+	Table* table = word->getMutableTable();
+	if (table == nullptr && update == -1) return;
+	assert(table != nullptr);
+	table->updateWordCount(update);
+	table->updateWordCount(word->getId(), update);
+
+	TableUtils::UpdateTopicFromTable(table, word->getId(), update);
 }
 
 // =======================================================================
@@ -78,9 +113,37 @@ vector<Author*> Document::getMutableAuthors() const {
 void DocumentUtils::SampleAuthors(Document* document,
 													 int permute_words,
 											     bool remove) {
+	if (permute_words == 1) {
+		PermuteWords(document);
+	}
 
+	int words = document->getWords();
+	for (int i = 0; i < words; i++) {
+		Word* word = document->getMutableWord(i);
+		SampleAuthorForWord(document, word, remove);
+	}
 }
 
+void DocumentUtils::SampleAuthorForWord(Document* document,
+																				Word* word,
+																				bool remove) {
+	if (remove) {
+		int update = -1;
+		int author_id = word->getAuthorId();
+		AllAuthors& all_authors = AllAuthors::GetInstance();
+		assert(author_id != -1);
+		Author* author = all_authors.getMutableAuthor(author_id);
+		author->updateWordCount(update);
+
+		if (update == -1) {	
+			author->removeWord(word);
+		} 
+
+		if (update == 1) {
+			author->addWord(word);
+		}
+	}
+}
 
 void DocumentUtils::PermuteWords(Document* document) {
   int size = document->getWords();

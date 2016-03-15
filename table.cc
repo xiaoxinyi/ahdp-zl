@@ -45,4 +45,42 @@ void Table::updateWordCount(int word_id, int update) {
 	return;
 }
 
+// =======================================================================
+// TableUtils
+// =======================================================================
+
+void TableUtils::UpdateTopicFromTable(Table* table,
+																			int word_id,
+																			int update) {
+	if (table == nullptr) return;
+	Topic* topic = table->getMutableTopic();
+	if (table->getWordCount() == 1 && update == 1) {
+		topic->updateTableCount(1);
+	}
+
+	if (table->getWordCount() == 0 and update == -1) {
+		topic->updateTableCount(-1);
+	}
+
+	topic->updateWordCount(update);
+	topic->updateWordCount(word_id, update);
+
+}
+
+void TableUtils::UpdateTopicFromTable(Table* table,
+																	    int update) {
+	Topic* topic = table->getMutableTopic();
+	topic->updateTableCount(update);
+
+	unordered_map<int, int>& word_counts = table->getWordCounts();
+	for (auto& p : word_counts) {
+		int word_id = p.first;
+		int count = p.second;
+
+		topic->updateWordCount(update * count);
+		topic->updateWordCount(word_id, update * count);
+	}
+
+}
+
 } // ahdp

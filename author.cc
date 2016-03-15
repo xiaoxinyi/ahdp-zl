@@ -12,7 +12,8 @@ namespace ahdp {
 // =======================================================================
 
 Author::Author(int id) 
-		: id_(id) {
+		: id_(id),
+		  word_count_(0) {
 }
 
 Author& Author::operator=(Author&& from) {
@@ -27,6 +28,8 @@ Author& Author::operator=(Author&& from) {
 		}
 	}
 	words_.resize(0);
+	word_count_ = from.word_count_;
+	id_ = from.id_;
 	
 	words_ = move(from.words_);
 	tables_ = move(from.tables_);
@@ -38,6 +41,16 @@ void Author::addNewTable() {
 	Table* table = new Table;
 	tables_.push_back(table);
 } 
+
+void Author::removeWord(Word* word) {
+	auto found = find(begin(words_), end(words_), word);
+	if (found == end(words_)) {
+		return;
+	} else {
+		*found = nullptr;
+		words_.erase(found);
+	}
+}
 
 void Author::removeTable(int pos) {
 	Table* table = tables_[pos];

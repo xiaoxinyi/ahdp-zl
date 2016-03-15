@@ -23,7 +23,7 @@ public:
 	int getCorpusWordNo() const { return corpus_word_no_; }
 	void setCorpusWordNO(int corpus_word_no) { corpus_word_no_ = corpus_word_no; }
 
-	void updateWordCounts(int word_id, int update) {
+	void updateWordCount(int word_id, int update) {
 		word_counts_[word_id] += update;
 	}
 	int getWordCount(int word_id) const { return word_counts_[word_id]; }

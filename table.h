@@ -22,7 +22,7 @@ public:
 	void setWordCount(const int& word_count) { word_count_= word_count; }
 	void updateWordCount(int val) { word_count_ += val; }
 
-	Topic* getMutabletopic() { return topic_; }
+	Topic* getMutableTopic() { return topic_; }
 	void setTopic(Topic* topic) { topic_ = topic; }
 
 	int getWordCount(int word_id);
@@ -40,6 +40,21 @@ private:
 	// The topic which the table is assigned to.
 	Topic* topic_;
 	
+};
+
+// TableUtils provides functionality for update the 
+// corresponding topic statistics from the table.
+// Remove or add word count
+class TableUtils {
+
+// Update topic's statistics from a single word from table.
+static void UpdateTopicFromTable(Table* table,
+																	int word_id,
+																	int update);
+
+// Update topic's statistics from all the words from table.
+static void UpdateTopicFromTable(Table* table,
+																	int update);
 };
 } // ahdp
 

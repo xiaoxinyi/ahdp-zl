@@ -14,7 +14,8 @@ class Table;
 // to this author, tables.
 class Author {
 public:
-	Author(int id);
+	Author(int id);	
+	~Author();
 
 	Author(const Author& from) = delete;
 	Author& operator=(const Author& from) = delete;
@@ -27,16 +28,23 @@ public:
 
 	Word* getMutableWord(int i) { return words_[i]; }
 	void addWord(Word* word) { words_.push_back(word); }
+	void removeWord(Word* word);
 
 	Table* getMutableTable(int i) { return tables_[i]; }
 	void addNewTable();
 	void removeTable(int pos);
 
-	~Author();
+	int getWordCount() const { return word_count_; }
+	void setWordCount(const int& word_count) { word_count_ = word_count; }
+	void updateWordCount(int update) { word_count_ += update; }
+
 	
 private:
 	// Id.
 	int id_;
+
+	// Word Count.
+	int word_count_;
 
 	// Words.
 	vector<Word*> words_;
