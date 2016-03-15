@@ -38,6 +38,57 @@ private:
 	
 };
 
+class Author;
+
+class Document {
+public:
+	Document(int id);
+	~Document();
+
+	Document(const Document& from) = delete;
+	Document& operator=(const Document& from) = delete;
+
+	Document(Document&& from) = default;
+	Document& operator=(Document&& from);
+
+	int getWords() { return words_.size(); }
+
+	void addWord(int id) { words_.emplace_back(new Word(id)); }
+	void addWord(Word* word) { words_.push_back(word); }
+	Word* getMutableWord(int i) { return words_[i]; }
+	void setWords(vector<Word*>&& words) {
+		words_ = move(words);
+	}
+
+	int getAuthors() const { return authors_.size(); }
+	vector<int>& getAuthors() { return authors_; }
+	vector<Author*> getMutableAuthors() const;
+
+private:
+	// Id.
+	int id_;
+
+	// Words.
+	vector<Word*> words_;
+
+	// Authors.
+	vector<int> authors_;
+};
+
+// The class provide functionality for 
+// sampling author for each word.
+class DocumentUtils {
+public:
+	// Sample author for each word.
+	// Dirichlet process parameter,
+	static void SampleAuthors(Document* document,
+													 int permute_words,
+											     bool remove);
+
+	// Permute words in the document.
+	static void PermuteWords(Document* document);
+};
+
 
 } // ahdp
 #endif
