@@ -68,17 +68,81 @@ void TableUtils::UpdateTopicFromTable(Table* table,
 }
 
 void TableUtils::UpdateTopicFromTable(Table* table,
+																			vector<int>& word_ids,
+																			vector<int>& counts,
 																	    int update) {
+	int size = word_ids.size();
 	Topic* topic = table->getMutableTopic();
 	topic->updateTableCount(update);
 
-	unordered_map<int, int>& word_counts = table->getWordCounts();
-	for (auto& p : word_counts) {
-		int word_id = p.first;
-		int count = p.second;
+	for (int i = 0; i < size; i++) {
+		int word_id = word_ids[i];
+		
+		topic->updateWordCount(update * counts[i]);
+		topic->updateWordCount(word_id, update * counts[i]);
+	}
 
-		topic->updateWordCount(update * count);
-		topic->updateWordCount(word_id, update * count);
+}
+
+void TableUtils::GetWordsAndCounts(Table* table,
+																	 vector<int>& word_ids,
+																	 vector<int>& counts) {
+	unordered_map<int, int>& m = table->getWordCounts();
+	int size = m.size();
+
+	word_ids.reserve(size);
+	counts.reserve(size);
+
+	for (auto p : m) {
+		word_ids.push_back(p.first);
+		counts.push_back(p.second);
+	}
+}
+
+
+void TableUtils::SampleTopicForTable(Table* table, 
+																		 double gamma,
+																		 bool remove) {
+	AllTopics& all_topics = AllTopics::GetInstance();
+	int topics = all_topics.getTopics();
+
+	vector<int> word_ids;
+	vector<int> counts;
+	TableUtils::GetWordsAndCounts(table, word_ids, counts);
+	
+	vector<double> log_pr(topics + 1, 0.0);
+	for (int i = 0; i < topics; i++) {
+		Topic* topic = all_topics.getMutableTopic(i);
+		if (table->getMutableTopic() != topic) {
+			log_pr[i] = TopicTableUtils::LogGammaRatio(table, topic, 
+																								 word_ids, counts) +
+									log(topic->getTableCount());
+		} else {
+			log_pr[i] = TopicTableUtils::LogGammaRatio(table, topic,
+																								 word_ids, counts) +
+									log(topic->getTableCount() - 1);
+		}					
+	}
+
+	Topic* new_ = all_topics.getMutableTopic(topics);
+	log_pr[topics] = log(gamma) + 
+										TopicTableUtils::LogGammaRatio(
+											table, new_, word_ids, counts);
+			
+
+	int sample_topic = Utils::SampleFromLogPr(log_pr);
+	Topic* old_topic = table->getMutableTopic();
+	Topic* new_topic = all_topics.getMutableTopic(sample_topic);
+
+	if (old_topic != new_topic) {
+		TableUtils::UpdateTopicFromTable(table, word_ids, counts, -1);	
+
+		table->setTopic(new_topic);
+		TableUtils::UpdateTopicFromTable(table, word_ids, counts, 1);
+	}
+
+	if (sample_topic != topics) {
+		all_topics.removeLastTopic();
 	}
 
 }

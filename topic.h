@@ -32,6 +32,8 @@ public:
 	void setTableCount(int table_count) { table_count = table_count_; }
 	void updateTableCount(int update) { table_count_ += update; }
 
+	double getLogWordPr(int word_id);
+	double getLgamWordEta(int word_id);
 private:
 	// Corpus word number - vocabulary size.
 	int corpus_word_no_;
@@ -45,6 +47,34 @@ private:
 	// Counts of each word assigned to this topic.
 	vector<int> word_counts_;
 	
+};
+
+
+// The class provides functionality for computing
+// eta score.
+class TopicUtils {
+public:
+	// Computing eta score for given topic.
+	static double EtaScore(Topic* topic, double eta);
+
+	static void PrintTopicInfo(Topic* topic);
+};
+
+
+class Table;
+// This class provides functionality for computing
+// Log gamma ratio of each topic given a table.
+class TopicTableUtils {
+public:
+	// Compute log gamma ratio for table given a topic.
+	// table - given table.
+	// topic - possible to be sampled topic.
+	// word_ids - distinct word ids in table.
+	// counts - corresponding counts.
+	static double LogGammaRatio(Table* table,
+											 				Topic* topic,
+											 				vector<int>& word_ids,
+											 				vector<int>& counts);
 };
 
 
@@ -88,6 +118,21 @@ private:
 	// Private constructor.
 	AllTopics() { }
 	
+};
+
+// This class provides functionality for computing
+// Gamma score, Eta scores.
+class AllTopicsUtils {
+public:
+	// Compute gamma score.
+	// gamma - first level dirichlet process parameter.
+	static double GammaScore(double gamma);
+
+	// Compute eta score.
+	// eta - dirichlet distribution parameter of each topic.
+	static double EtaScore();
+
+	static void PrintTopicsInfo();
 };
 
 

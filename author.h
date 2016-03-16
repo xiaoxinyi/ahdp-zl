@@ -33,6 +33,7 @@ public:
 	Table* getMutableTable(int i) { return tables_[i]; }
 	void addNewTable();
 	void removeTable(int pos);
+	int getTables() const { return tables_.size(); }
 
 	int getWordCount() const { return word_count_; }
 	void setWordCount(const int& word_count) { word_count_ = word_count; }
@@ -69,11 +70,23 @@ public:
 	// alpha - second level DP parameter.
 	// gamma - first level DP parameer.
 	static void SampleTables(Author* author,
-													 int permute_words,
 													 bool remove,
 													 double alpha,
 								    			 double gamma,
 								    			 int corpus_word_no);
+
+	// Compress the unused tables.
+	static void CompactTables(Author* author);
+
+	// Compute alpha score - author partition score.
+	static double AlphaScore(Author* author, 
+													 double alpha);
+
+	// Sample Topics for all tables given a document.
+	static void SampleTopics(Author* author, 
+													 double gamma, 
+													 bool remove); 
+
 };
 
 // AllAuthors contains all the authors in the corpus.

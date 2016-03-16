@@ -54,7 +54,19 @@ static void UpdateTopicFromTable(Table* table,
 
 // Update topic's statistics from all the words from table.
 static void UpdateTopicFromTable(Table* table,
-																	int update);
+																 vector<int>& word_ids,
+																 vector<int>& counts,
+																 int update);
+
+// Sample a topic for a table.
+static void SampleTopicForTable(Table* table, 
+																double gamma,
+																bool remove);
+// Get word_ids and counts in the table.
+static void GetWordsAndCounts(Table* table,
+															vector<int>& word_ids,
+															vector<int>& counts);
+
 };
 } // ahdp
 
