@@ -53,6 +53,29 @@ private:
 	vector<Table*> tables_;
 };
 
+// This class provides functionality for sampling tables for
+// the words in the author.
+class AuthorUtils {
+public:
+	static void SampleTableForWord(Author* author,
+																 Word* word,
+																 bool remove,
+																 double alpha,
+																 double gamma,
+																 int corpus_word_no);
+	// Sampling tables for the words in the author.
+	// permute_words - flag for permuting words.
+	// remove - 
+	// alpha - second level DP parameter.
+	// gamma - first level DP parameer.
+	static void SampleTables(Author* author,
+													 int permute_words,
+													 bool remove,
+													 double alpha,
+								    			 double gamma,
+								    			 int corpus_word_no);
+};
+
 // AllAuthors contains all the authors in the corpus.
 class AllAuthors {
 public:

@@ -40,9 +40,10 @@ private:
 
 class WordUtils {
 public:
-	static void UpdateAuthorFromWord(Word* word, int author_id, int update);
+	// Update words in author.
+	static void UpdateAuthorFromWord(Word* word, int update);
 
-	static void UpdateTableFromWord(Word* word, int author_id, int update);
+	static void UpdateTableFromWord(Word* word, int update);
 };
 
 class Author;
@@ -68,7 +69,8 @@ public:
 	}
 
 	int getAuthors() const { return authors_.size(); }
-	vector<int>& getAuthors() { return authors_; }
+	vector<int>& getAuthorIds() { return authors_; }
+	int getAuthor(int i) const { return authors_[i]; }
 	vector<Author*> getMutableAuthors() const;
 
 private:

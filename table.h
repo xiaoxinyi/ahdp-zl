@@ -46,7 +46,7 @@ private:
 // corresponding topic statistics from the table.
 // Remove or add word count
 class TableUtils {
-
+public:
 // Update topic's statistics from a single word from table.
 static void UpdateTopicFromTable(Table* table,
 																	int word_id,

@@ -41,6 +41,8 @@ void WordUtils::UpdateAuthorFromWord(Word* word,
 	if (update == 1) {
 		author->addWord(word);
 	}
+
+	UpdateTableFromWord(word, update);
 }
 
 void WordUtils::UpdateTableFromWord(Word* word,
@@ -127,21 +129,18 @@ void DocumentUtils::SampleAuthors(Document* document,
 void DocumentUtils::SampleAuthorForWord(Document* document,
 																				Word* word,
 																				bool remove) {
-	if (remove) {
-		int update = -1;
-		int author_id = word->getAuthorId();
-		AllAuthors& all_authors = AllAuthors::GetInstance();
-		assert(author_id != -1);
-		Author* author = all_authors.getMutableAuthor(author_id);
-		author->updateWordCount(update);
 
-		if (update == -1) {	
-			author->removeWord(word);
-		} 
-
-		if (update == 1) {
-			author->addWord(word);
-		}
+	int authors = document->getAuthors();
+	assert(authors > 0);
+	vector<double> log_pr(authors, log(1.0 / authors));
+	int sample_index = Utils::SampleFromLogPr(log_pr); 
+	int sample_author = document->getAuthor(sample_index);
+	int old_author = word->getAuthorId();
+	if (sample_author != old_author) {
+		WordUtils::UpdateAuthorFromWord(word, -1);
+		word->setAuthorId(sample_author);
+		word->setTable(nullptr);
+		WordUtils::UpdateAuthorFromWord(word, 1);
 	}
 }
 
