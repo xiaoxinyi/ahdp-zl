@@ -69,6 +69,7 @@ public:
 	}
 
 	int getAuthors() const { return authors_.size(); }
+	void setAuthors(const vector<int>& authors) { authors_ = authors; }
 	vector<int>& getAuthorIds() { return authors_; }
 	int getAuthor(int i) const { return authors_[i]; }
 	vector<Author*> getMutableAuthors() const;
