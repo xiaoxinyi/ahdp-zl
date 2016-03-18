@@ -3,19 +3,28 @@
 
 #include <vector>
 
+#include "table.h"
+
 using namespace std;
 
 namespace ahdp {
 
 class Word;
-class Table;
+
 
 // Author contains an author id, all the  words belongs 
 // to this author, tables.
 class Author {
 public:
 	Author(int id);	
-	~Author();
+	~Author() {
+		for (auto& table : tables_) {
+			if (table != nullptr) {
+				delete table;
+				table = nullptr;
+			}
+		}
+	}
 
 	Author(const Author& from) = delete;
 	Author& operator=(const Author& from) = delete;
@@ -99,8 +108,10 @@ public:
 AllAuthors(const AllAuthors& from) = delete;
 AllAuthors& operator=(const AllAuthors& from) = delete; 
 
+~AllAuthors();
+
 int getAuthors() const { return authors_.size(); }
-void setAuthors(vector<Author>& authors) {
+void setAuthors(vector<Author>&& authors) {
 	authors_ = move(authors);
 }
 
@@ -112,4 +123,4 @@ private:
 };
 
 }  // ahdp
-#endif
+#endif  // AUTHOR_H_

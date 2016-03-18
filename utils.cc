@@ -22,7 +22,7 @@
 
 #include "utils.h"
 
-namespace hdp {
+namespace ahdp {
 
 // =======================================================================
 // Utils

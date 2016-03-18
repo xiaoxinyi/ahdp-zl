@@ -1,0 +1,1464 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"getau",
+				"getAuthors"
+			],
+			[
+				"getmu",
+				"getMutableAuthor"
+			],
+			[
+				"em",
+				"emplace_back"
+			],
+			[
+				"end",
+				"endif"
+			],
+			[
+				"getw",
+				"getWordCount"
+			],
+			[
+				"word",
+				"word_count_"
+			],
+			[
+				"wo",
+				"word_id"
+			],
+			[
+				"Update",
+				"UpdateAuthorFromWord"
+			],
+			[
+				"getmuta",
+				"getMutableTable"
+			],
+			[
+				"setautho",
+				"setAuthorId"
+			],
+			[
+				"Word",
+				"WordUtils"
+			],
+			[
+				"update",
+				"updateTableCount"
+			],
+			[
+				"getmut",
+				"getMutableTopic"
+			],
+			[
+				"word_c",
+				"word_counts"
+			],
+			[
+				"ge",
+				"getWordCounts"
+			],
+			[
+				"stat",
+				"static"
+			],
+			[
+				"get",
+				"getMutableTable"
+			],
+			[
+				"getMuta",
+				"getMutableAuthor"
+			],
+			[
+				"updat",
+				"updateWordCount"
+			],
+			[
+				"getm",
+				"getMutableAuthor"
+			],
+			[
+				"getAuth",
+				"getAuthorId"
+			],
+			[
+				"word_cou",
+				"word_count"
+			],
+			[
+				"Document",
+				"DocumentUtils"
+			],
+			[
+				"getMu",
+				"getMutableAuthor"
+			],
+			[
+				"gs",
+				"gsl_permutation"
+			],
+			[
+				"inc",
+				"include"
+			],
+			[
+				"word_co",
+				"word_counts_"
+			],
+			[
+				"vec",
+				"I-vector	inc"
+			],
+			[
+				"name",
+				"name	Namespace"
+			],
+			[
+				"using",
+				"using	namespace"
+			],
+			[
+				"s",
+				"subl"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 259,
+				"line_ending": "Unix",
+				"name": ".gitignore"
+			}
+		},
+		{
+			"file": "document.h",
+			"settings":
+			{
+				"buffer_size": 2200,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "document.cc",
+			"settings":
+			{
+				"buffer_size": 4003,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "topic.h",
+			"settings":
+			{
+				"buffer_size": 3338,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "topic.cc",
+			"settings":
+			{
+				"buffer_size": 6017,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "utils.h",
+			"settings":
+			{
+				"buffer_size": 2948,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 454,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "author.h",
+			"settings":
+			{
+				"buffer_size": 2676,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "corpus.h",
+			"settings":
+			{
+				"buffer_size": 2125,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "author.cc",
+			"settings":
+			{
+				"buffer_size": 5494,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "corpus.cc",
+			"settings":
+			{
+				"buffer_size": 4111,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gibbs.cc",
+			"settings":
+			{
+				"buffer_size": 7456,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "ahdp_main.cc",
+			"settings":
+			{
+				"buffer_size": 904,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gibbs.h",
+			"settings":
+			{
+				"buffer_size": 3770,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "table.h",
+			"settings":
+			{
+				"buffer_size": 1814,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "table.cc",
+			"settings":
+			{
+				"buffer_size": 3719,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "proje",
+		"selected_items":
+		[
+			[
+				"proje",
+				"Project: Save As"
+			],
+			[
+				"sideba",
+				"View: Toggle Side Bar"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"this",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"gitc",
+				"Git: Commit"
+			],
+			[
+				"gitadd",
+				"Git: Add All"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"thsi",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"shwo e",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"git co",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add All"
+			],
+			[
+				"co",
+				"Git: Commit"
+			],
+			[
+				"show",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"remoev",
+				"Package Control: Remove Package"
+			],
+			[
+				"csop",
+				"Cscope: Look up symbol"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"cscop",
+				"Cscope: Look up symbol"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"linter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"sh",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"lint shi",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"sho",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"gitad",
+				"Git: Add All"
+			],
+			[
+				"disa",
+				"SublimeLinter: Disable Debug Mode"
+			],
+			[
+				"enab",
+				"SublimeLinter: Enable Debug Mode"
+			],
+			[
+				"lint thie",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"rebu",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"them",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"add cu",
+				"Themr: Add current theme to favorites"
+			],
+			[
+				"linter wa",
+				"SublimeLinter: Don't Make Warnings Passive"
+			],
+			[
+				"lintr",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"resor",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"res",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"intall",
+				"Package Control: Install Package"
+			],
+			[
+				"resour",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"rever",
+				"File: Revert All Files"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"gitco",
+				"Git: Commit"
+			],
+			[
+				"gitigno",
+				"Gitignore: New gitignore"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git t",
+				"Git: Push Tags"
+			],
+			[
+				"gitta",
+				"Git: Show Tags"
+			],
+			[
+				"revert",
+				"File: Revert All Files"
+			],
+			[
+				"sidebar",
+				"View: Toggle Side Bar"
+			],
+			[
+				"mini",
+				"View: Toggle Minimap"
+			],
+			[
+				"sid",
+				"View: Toggle Side Bar"
+			],
+			[
+				"togg",
+				"View: Toggle Status Bar"
+			],
+			[
+				"toggle",
+				"View: Toggle Status Bar"
+			],
+			[
+				"si",
+				"View: Toggle Side Bar"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"create",
+				"Create Xiki Buffer"
+			],
+			[
+				"javatar",
+				"Preferences: Javatar Settings – Default"
+			],
+			[
+				"java",
+				"Javatar: Calls..."
+			],
+			[
+				"javatar:bu",
+				"Javatar: Builds..."
+			],
+			[
+				"ja",
+				"Javatar: Builds..."
+			],
+			[
+				"mat",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"packageco",
+				"Package Control: Remove Package"
+			],
+			[
+				"xiki",
+				"Set Syntax: Xiki"
+			],
+			[
+				"listpa",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"sytpyt",
+				"Set Syntax: Python"
+			],
+			[
+				"",
+				"Package Control: Add Repository"
+			]
+		],
+		"width": 292.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/zhangli/code/cplusplus/ahdp-zl"
+	],
+	"file_history":
+	[
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Installed Packages/Cscope.sublime-package",
+		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__hash_table",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/ClangAutoComplete/ClangAutoComplete.sublime-settings",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/Themr/ThemrFavorites.sublime-settings",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/User/ThemrFavorites.sublime-settings",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/C++/namespace-..-(namespace).sublime-snippet",
+		"/Users/zhangli/code/cplusplus/hdp-zl/.gitignore",
+		"/Users/zhangli/code/cplusplus/hdp-zl/cscope.out",
+		"/Users/zhangli/.zshrc",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/zhangli/Desktop/topic model code /npbayes-r1/hdpmix/README",
+		"/Users/zhangli/Desktop/topic model code /npbayes-r1/hdpmix/hdp_init.m",
+		"/Users/zhangli/Desktop/topic model code /npbayes-r1/hdpmix/hdp_standardize.m",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/Project Manager/Project Manager.sublime-settings",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/Javatar/Javatar.sublime-settings",
+		"/Users/zhangli/code/java/Main.java",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/SublimeXiki/SublimeXiki.sublime-settings",
+		"/tmp/subl stdin GPUysS.txt",
+		"/tmp/subl stdin BZoV5r.txt",
+		"/tmp/subl stdin XTV19m.txt",
+		"/tmp/subl stdin CkSK38.txt",
+		"/tmp/subl stdin xcbNV2.txt",
+		"/tmp/subl stdin 69qXa9.txt",
+		"/Users/zhangli/0",
+		"/Applications/MATLAB_R2014b.app/extern/include/matrix.h",
+		"/Applications/MATLAB_R2014b.app/extern/include/mex.h",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/zhangli/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 99.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"hdp",
+			"Document",
+			"document",
+			"Document",
+			"document",
+			"Document",
+			"document",
+			"hdp",
+			"document",
+			"doc_no",
+			"document",
+			"DocumentUtils",
+			"document",
+			"Document",
+			"document",
+			"Document",
+			"document",
+			"Document",
+			"document",
+			"Document",
+			"document",
+			"Document",
+			"document",
+			"getAuthors",
+			"old_author",
+			"hdp",
+			"NULL",
+			"document",
+			"map_word_count_",
+			"NULL",
+			"map",
+			"m_size_",
+			"sample_word_a",
+			"free",
+			"namax",
+			"nzmax",
+			"emacs",
+			"WO",
+			"public",
+			"static",
+			"mxArray_tag",
+			"mxArray"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"int"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 12,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 259,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								17,
+								17
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "document.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1483,
+								1483
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1256.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "document.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4003,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2482,
+								2482
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2062.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "topic.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3338,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1485,
+								1485
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 958.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "topic.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6017,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1763,
+								1763
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1995.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "utils.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2948,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1092,
+								1079
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 454,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								226,
+								226
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
+						},
+						"translation.x": 124.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "author.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2676,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2075,
+								2075
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1731.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "corpus.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1903,
+								1903
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1065.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "author.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5494,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1535,
+								1535
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1494.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "corpus.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4111,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3205,
+								3205
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2737.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "gibbs.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7456,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6867,
+								6867
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3796.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "ahdp_main.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 904,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								719,
+								719
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 2.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "gibbs.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3770,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3445,
+								3445
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1920.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "table.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1814,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1481,
+								1481
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 830.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "table.cc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3719,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2332,
+								2332
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2033.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.cc":
+	{
+		"height": 167.0
+	},
+	"output.exec":
+	{
+		"height": 138.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 136.0
+	},
+	"pinned_build_system": "Packages/Makefile/Make.sublime-build",
+	"project": "ahdp.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"gib",
+				"gibbs.h"
+			],
+			[
+				"gb",
+				"gibbs.cc"
+			],
+			[
+				"gibb",
+				"gibbs.cc"
+			],
+			[
+				"doc",
+				"document.cc"
+			],
+			[
+				"",
+				"author.h"
+			],
+			[
+				"corp",
+				"corpus.cc"
+			],
+			[
+				"cor",
+				"corpus.cc"
+			],
+			[
+				"topic",
+				"topic.h"
+			],
+			[
+				"ta",
+				"table.cc"
+			],
+			[
+				"auth",
+				"author.cc"
+			],
+			[
+				"au",
+				"author.cc"
+			],
+			[
+				"author",
+				"author.h"
+			],
+			[
+				"do",
+				"document.h"
+			],
+			[
+				"t",
+				"table.cc"
+			],
+			[
+				"table",
+				"table.h"
+			],
+			[
+				"tab",
+				"table.h"
+			],
+			[
+				"d",
+				"document.cc"
+			],
+			[
+				"autho",
+				"author.h"
+			],
+			[
+				"util",
+				"utils.h"
+			],
+			[
+				"topi",
+				"topic.cc"
+			],
+			[
+				"docu",
+				"document.cc"
+			],
+			[
+				"author.",
+				"author.h"
+			],
+			[
+				"make",
+				"Makefile"
+			],
+			[
+				".",
+				".gitignore"
+			],
+			[
+				"git",
+				".gitignore"
+			],
+			[
+				"gibbs",
+				"gibbs.cc"
+			],
+			[
+				"main",
+				"src/hlda_main.cc"
+			],
+			[
+				"c",
+				"cokus.cpp"
+			],
+			[
+				"m",
+				"~/code/java/Main.java"
+			],
+			[
+				"writetop",
+				"WriteTopics.m"
+			],
+			[
+				"ex",
+				"exampleLDA1.m"
+			],
+			[
+				"~/code/",
+				"~/code/java/Main.java"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 400.0,
+		"last_filter": "samplea",
+		"selected_items":
+		[
+			[
+				"samplea",
+				"SampleAuthors"
+			],
+			[
+				"amp",
+				"SampleTables"
+			],
+			[
+				"s",
+				"SampleTopicForTable"
+			],
+			[
+				"samp",
+				"SampleAuthorForWord"
+			],
+			[
+				"all",
+				"~AllTopics"
+			],
+			[
+				"updateword",
+				"updateWordCount"
+			],
+			[
+				"update",
+				"updateWordCount"
+			]
+		],
+		"width": 400.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 275.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

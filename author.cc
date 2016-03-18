@@ -65,14 +65,7 @@ void Author::removeTable(int pos) {
 	tables_.erase(it);
 }
 
-Author::~Author() {
-	for (auto& table : tables_) {
-		if (table != nullptr) {
-			delete table;
-			table = nullptr;
-		}
-	}
-}
+
 
 // =======================================================================
 // AuthorUtils
@@ -220,4 +213,5 @@ AllAuthors& AllAuthors::GetInstance() {
 	return instance;
 }
 
+AllAuthors::~AllAuthors() {}
 } // ahdp

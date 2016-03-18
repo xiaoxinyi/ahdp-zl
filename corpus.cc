@@ -41,8 +41,7 @@ Corpus::Corpus(double gamma, double alpha)
 void CorpusUtils::ReadCorpus(
     const std::string& docs_filename,
     const std::string& authors_filename,
-    Corpus* corpus,
-    int depth) {
+    Corpus* corpus) {
 
   ifstream infile(docs_filename.c_str());
   char buf[BUF_SIZE];
@@ -112,7 +111,7 @@ void CorpusUtils::ReadCorpus(
     authors.emplace_back(Author(i));
   }
 
-  all_authors.setAuthors(authors);
+  all_authors.setAuthors(move(authors));
   corpus->setWordNo(word_no);
   corpus->setAuthorNo(author_no);
 
