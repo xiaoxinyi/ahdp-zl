@@ -18,6 +18,15 @@ Author::Author(int id)
 		  word_count_(0) {
 }
 
+Author::~Author() {
+  for (auto& table : tables_) {
+    if (table != nullptr) {
+      delete table;
+      table = nullptr;
+    }
+  }
+}
+
 Author& Author::operator=(Author&& from) {
 	if (this == &from) {
 		return *this;
@@ -213,5 +222,10 @@ AllAuthors& AllAuthors::GetInstance() {
 	return instance;
 }
 
-AllAuthors::~AllAuthors() {}
+AllAuthors::~AllAuthors() {
+	for (auto& author : authors_) {
+		delete author;
+		author = nullptr;
+	}
+}
 } // ahdp

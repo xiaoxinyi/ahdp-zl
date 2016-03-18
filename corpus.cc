@@ -108,10 +108,9 @@ void CorpusUtils::ReadCorpus(
 
   AllAuthors& all_authors = AllAuthors::GetInstance();
   for (int i = 0; i < author_no; i++) {
-    authors.emplace_back(Author(i));
+    all_authors.addNewAuthor(i);
   }
 
-  all_authors.setAuthors(move(authors));
   corpus->setWordNo(word_no);
   corpus->setAuthorNo(author_no);
 

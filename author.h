@@ -3,13 +3,13 @@
 
 #include <vector>
 
-#include "table.h"
 
 using namespace std;
 
 namespace ahdp {
 
 class Word;
+class Table;
 
 
 // Author contains an author id, all the  words belongs 
@@ -17,14 +17,7 @@ class Word;
 class Author {
 public:
 	Author(int id);	
-	~Author() {
-		for (auto& table : tables_) {
-			if (table != nullptr) {
-				delete table;
-				table = nullptr;
-			}
-		}
-	}
+	~Author();
 
 	Author(const Author& from) = delete;
 	Author& operator=(const Author& from) = delete;
@@ -111,13 +104,12 @@ AllAuthors& operator=(const AllAuthors& from) = delete;
 ~AllAuthors();
 
 int getAuthors() const { return authors_.size(); }
-void setAuthors(vector<Author>&& authors) {
-	authors_ = move(authors);
-}
+void addNewAuthor(int author_id) { authors_.emplace_back(new Author(author_id)); }
 
-Author* getMutableAuthor(int author_id) { return &authors_[author_id]; }
+
+Author* getMutableAuthor(int author_id) { return authors_[author_id]; }
 private:
-	vector<Author> authors_;
+	vector<Author*> authors_;
 	AllAuthors() {}
 	
 };

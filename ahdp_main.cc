@@ -8,7 +8,7 @@ using ahdp::GibbsState;
 #define MAX_ITERATIONS 10000
 
 int main(int argc, char** argv) {
-  if (argc == 3) {
+  if (argc == 4) {
     // The random number generator seed.
     // For testing an example seed is: t = 1147530551;
     long rng_seed;
