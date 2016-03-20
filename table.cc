@@ -74,6 +74,7 @@ void TableUtils::UpdateTopicFromTable(Table* table,
 																	    int update) {
 	int size = word_ids.size();
 	Topic* topic = table->getMutableTopic();
+	if (topic == nullptr) return;
 	topic->updateTableCount(update);
 
 	for (int i = 0; i < size; i++) {
