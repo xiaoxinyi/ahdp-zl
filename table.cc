@@ -54,6 +54,7 @@ void TableUtils::UpdateTopicFromTable(Table* table,
 																			int update) {
 	if (table == nullptr) return;
 	Topic* topic = table->getMutableTopic();
+	if (topic == nullptr) return;
 	if (table->getWordCount() == 1 && update == 1) {
 		topic->updateTableCount(1);
 	}
@@ -109,6 +110,10 @@ void TableUtils::SampleTopicForTable(Table* table,
 	vector<int> word_ids;
 	vector<int> counts;
 	TableUtils::GetWordsAndCounts(table, word_ids, counts);
+	
+	assert(topics >= 1);
+	int corpus_word_no = all_topics.getMutableTopic(0)->getCorpusWordNo();
+	all_topics.addNewTopic(corpus_word_no);
 	
 	vector<double> log_pr(topics + 1, 0.0);
 	for (int i = 0; i < topics; i++) {

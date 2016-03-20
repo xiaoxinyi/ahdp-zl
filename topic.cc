@@ -16,7 +16,8 @@ namespace ahdp {
 Topic::Topic(int corpus_word_no)
 		: corpus_word_no_(corpus_word_no),
 			word_count_(0),
-			table_count_(0) {
+			table_count_(0),
+			word_counts_(corpus_word_no, 0) {
 }
 
 double Topic::getLogWordPr(int word_id) {

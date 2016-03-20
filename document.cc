@@ -27,7 +27,7 @@ Word::Word(int id)
 void WordUtils::UpdateAuthorFromWord(Word* word,  
 																		int update) {
 	int author_id = word->getAuthorId();
-	if (author_id == -1 && update == -1) return;
+	if (author_id == -1) return;
 	assert(author_id != -1);
 
 	AllAuthors& all_authors = AllAuthors::GetInstance();
@@ -48,7 +48,7 @@ void WordUtils::UpdateAuthorFromWord(Word* word,
 void WordUtils::UpdateTableFromWord(Word* word,
 																		int update) {
 	Table* table = word->getMutableTable();
-	if (table == nullptr && update == -1) return;
+	if (table == nullptr) return;
 	assert(table != nullptr);
 	table->updateWordCount(update);
 	table->updateWordCount(word->getId(), update);

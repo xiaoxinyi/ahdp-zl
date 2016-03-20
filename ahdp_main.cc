@@ -11,8 +11,8 @@ int main(int argc, char** argv) {
   if (argc == 4) {
     // The random number generator seed.
     // For testing an example seed is: t = 1147530551;
-    long rng_seed;
-    (void) time(&rng_seed);
+    long rng_seed = 458312327;
+    // (void) time(&rng_seed);
 
     std::string filename_corpus = argv[1];
     std::string filename_authors = argv[2];

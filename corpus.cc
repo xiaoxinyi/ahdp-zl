@@ -90,7 +90,10 @@ void CorpusUtils::ReadCorpus(
         getline(s_word_count, str, ':');
         word_count = atoi(str.c_str());
         total_word_count += word_count;
-        document.addWord(word_id);
+				for (int i = 0; i < word_count; i++) {
+					document.addWord(word_id);
+				}
+
         if (word_id >= word_no) {
           word_no = word_id + 1;
         }
