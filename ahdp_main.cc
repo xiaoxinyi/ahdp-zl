@@ -4,8 +4,10 @@
 
 using ahdp::GibbsSampler;
 using ahdp::GibbsState;
+using ahdp::AllTopicsUtils;
 
 #define MAX_ITERATIONS 10000
+const string FILENAME_TOPICS = "topics-final.dat";
 
 int main(int argc, char** argv) {
   if (argc == 4) {
@@ -24,6 +26,7 @@ int main(int argc, char** argv) {
     for (int i = 0; i < MAX_ITERATIONS; i++) {
       ahdp::GibbsSampler::IterateGibbsState(gibbs_state);
     }
+    AllTopicsUtils::SaveTopics(FILENAME_TOPICS);
 
     delete gibbs_state;
   } else {

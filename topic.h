@@ -2,10 +2,11 @@
 #define TOPIC_H_
 
 #include <vector>
-
+#include <fstream>
+#include <string>
 #include <gsl/gsl_sf.h>
 
-using std::vector;
+using namespace std;
 
 namespace ahdp {
 
@@ -58,6 +59,8 @@ public:
 	static double EtaScore(Topic* topic, double eta);
 
 	static void PrintTopicInfo(Topic* topic);
+
+	static void SaveTopic(Topic* topic, ofstream& ofs);
 };
 
 
@@ -133,6 +136,8 @@ public:
 	static double EtaScore();
 
 	static void PrintTopicsInfo();
+
+	static void SaveTopics(const string& filename);
 };
 
 

@@ -2,6 +2,7 @@
 #include <assert.h>
 
 #include <iostream>
+#include <iomanip>
 
 #include "utils.h"
 #include "topic.h"
@@ -72,6 +73,16 @@ void TopicUtils::PrintTopicInfo(Topic* topic) {
 	}
 	cout << "=======================" << endl;
 	cout << endl;
+}
+
+void TopicUtils::SaveTopic(Topic* topic, ofstream& ofs) {
+  ofs.precision(10);
+  ofs << setw(12);
+  ofs << std::right;
+  for (int i = 0; i < topic->getCorpusWordNo(); i++) {
+    ofs << exp(topic->getLogWordPr(i)) << " ";
+  }
+  ofs << endl;
 }
 
 // =======================================================================
@@ -219,5 +230,17 @@ void AllTopicsUtils::PrintTopicsInfo() {
 		Topic* topic = all_topics.getMutableTopic(i);
 		TopicUtils::PrintTopicInfo(topic);
 	}
+}
+
+void AllTopicsUtils::SaveTopics(const string& filename) {
+	ofstream ofs(filename);
+	AllTopics& all_topics = AllTopics::GetInstance();
+	int topics = all_topics.getTopics();
+	for (int i = 0; i < topics; i++) {
+		Topic* topic = all_topics.getMutableTopic(i);
+		TopicUtils::SaveTopic(topic, ofs);
+	}
+
+	ofs.close();
 }
 } // ahdp
