@@ -69,8 +69,8 @@ void TableUtils::UpdateTopicFromTable(Table* table,
 }
 
 void TableUtils::UpdateTopicFromTable(Table* table,
-																			vector<int>& word_ids,
-																			vector<int>& counts,
+																			const vector<int>& word_ids,
+																			const vector<int>& counts,
 																	    int update) {
 	int size = word_ids.size();
 	Topic* topic = table->getMutableTopic();

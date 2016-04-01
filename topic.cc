@@ -23,8 +23,8 @@ Topic::Topic(int corpus_word_no)
 
 double Topic::getLogWordPr(int word_id) {
 	double eta = AllTopics::GetInstance().getEta();
-	double log_word_pr = log(word_counts_[word_id] + eta) -
-											  log(word_count_ + eta * corpus_word_no_);
+	double log_word_pr = log((word_counts_[word_id] + eta) / 
+											    (word_count_ + eta * corpus_word_no_));
 	return log_word_pr;
 }
 
@@ -65,7 +65,7 @@ double TopicUtils::EtaScore(Topic* topic, double eta) {
 void TopicUtils::PrintTopicInfo(Topic* topic) {
 	cout << "topic address : " << topic << endl;
 	cout << "topic table count : " << topic->getTableCount() << endl;
-	cout << "word NO in topic : " << topic->getWordCount() << endl;
+	cout << "word No in topic : " << topic->getWordCount() << endl;
 	int corpus_word_no = topic->getCorpusWordNo();
 	cout << "word id : count" << endl;
 	for (int i = 0; i < corpus_word_no; i++) {
@@ -75,14 +75,17 @@ void TopicUtils::PrintTopicInfo(Topic* topic) {
 	cout << endl;
 }
 
-void TopicUtils::SaveTopic(Topic* topic, ofstream& ofs) {
+void TopicUtils::SaveTopic(Topic* topic, 
+													 ofstream& ofs,
+													 ofstream& ofs_counts) {
   ofs.precision(10);
-  ofs << setw(12);
   ofs << std::right;
   for (int i = 0; i < topic->getCorpusWordNo(); i++) {
     ofs << exp(topic->getLogWordPr(i)) << " ";
+    ofs_counts << topic->getWordCount(i) << " ";
   }
   ofs << endl;
+  ofs_counts << endl;
 }
 
 // =======================================================================
@@ -91,8 +94,8 @@ void TopicUtils::SaveTopic(Topic* topic, ofstream& ofs) {
 
 double TopicTableUtils::LogGammaRatio(Table* table,
 											 								Topic* topic,
-											 								vector<int>& word_ids,
-                                      vector<int>& counts) {
+											 								const vector<int>& word_ids,
+                                      const vector<int>& counts) {
 	double log_gamma_ratio = 0.0;
 	Topic* old_topic = table->getMutableTopic();
 
@@ -185,6 +188,16 @@ void AllTopics::compactTopics() {
 	}
 }
 
+unordered_map<Topic*, int> AllTopics::getTopicIds() {
+	unordered_map<Topic*, int> m;
+	int topics = topic_ptrs_.size();
+	for (int i = 0; i < topics; i++) {
+		Topic* topic = topic_ptrs_[i];
+		m[topic] = i;
+	}
+	return m;
+}
+
 // =======================================================================
 // AllTopicsUtils 
 // =======================================================================
@@ -232,15 +245,30 @@ void AllTopicsUtils::PrintTopicsInfo() {
 	}
 }
 
-void AllTopicsUtils::SaveTopics(const string& filename) {
-	ofstream ofs(filename);
+void AllTopicsUtils::SaveTopics(const string& filename_topics,
+																const string& filename_topics_counts) {
+	ofstream ofs(filename_topics);
+	ofstream ofs_counts(filename_topics_counts);
+
 	AllTopics& all_topics = AllTopics::GetInstance();
 	int topics = all_topics.getTopics();
 	for (int i = 0; i < topics; i++) {
 		Topic* topic = all_topics.getMutableTopic(i);
-		TopicUtils::SaveTopic(topic, ofs);
+		TopicUtils::SaveTopic(topic, ofs, ofs_counts);
 	}
 
 	ofs.close();
+	ofs_counts.close();
 }
+
+int AllTopicsUtils::GetWordNo() {
+	AllTopics& all_topics = AllTopics::GetInstance();
+	int total = 0;
+	int topics = all_topics.getTopics();
+	for (int i = 0; i < topics; i++) {
+		total += all_topics.getMutableTopic(i)->getWordCount();
+	}
+	return total;
+}
+
 } // ahdp

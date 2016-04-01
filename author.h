@@ -2,6 +2,7 @@
 #define AUTHOR_H_
 
 #include <vector>
+#include <unordered_map>
 
 
 using namespace std;
@@ -10,6 +11,7 @@ namespace ahdp {
 
 class Word;
 class Table;
+class Topic;
 
 
 // Author contains an author id, all the  words belongs 
@@ -89,6 +91,10 @@ public:
 													 double gamma, 
 													 bool remove); 
 
+	static void GetTopicsForAuthor(Author* author,
+												 				 vector<int>& topic_counts,
+												 				 unordered_map<Topic*, int>& topic_ids);
+
 };
 
 // AllAuthors contains all the authors in the corpus.
@@ -112,6 +118,11 @@ private:
 	vector<Author*> authors_;
 	AllAuthors() {}
 	
+};
+
+class AllAuthorsUtils {
+public:
+	static void SaveAuthors(const string& filename_author_counts);
 };
 
 }  // ahdp

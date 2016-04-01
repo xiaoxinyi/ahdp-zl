@@ -36,10 +36,6 @@ void WordUtils::UpdateAuthorFromWord(Word* word,
 
 	if (update == -1) {	
 		author->removeWord(word);
-		Table* table = word->getMutableTable();
-		// Set removed word's table and topic.
-		table->setTopic(nullptr);
-		word->setTable(nullptr);
 	} 
 
 	if (update == 1) {
@@ -47,13 +43,20 @@ void WordUtils::UpdateAuthorFromWord(Word* word,
 	}
 
 	UpdateTableFromWord(word, update);
+
+	// Set removed word's table and topic nullptr.
+	if (update == -1) {
+		Table* table = word->getMutableTable();		
+		table->setTopic(nullptr);
+		word->setTable(nullptr);
+	}
 }
 
 void WordUtils::UpdateTableFromWord(Word* word,
 																		int update) {
 	Table* table = word->getMutableTable();
 	if (table == nullptr) return;
-	assert(table != nullptr);
+
 	table->updateWordCount(update);
 	table->updateWordCount(word->getId(), update);
 

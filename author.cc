@@ -1,6 +1,9 @@
 #include <assert.h>
 #include <math.h>
 
+#include <iostream>
+#include <map>
+
 #include "utils.h"
 #include "author.h"
 #include "table.h"
@@ -119,9 +122,10 @@ void AuthorUtils::SampleTableForWord(Author* author,
 	vector<double> f(topics+1, log(0));
 	double f_new = log(gamma / corpus_word_no);
 
+	log_pr_topic[topics] = f_new;
 
 	int total_tables = 0;
-	unordered_map<Topic*, int> topic_to_k;
+	map<Topic*, int> topic_to_k;
 
 	for (int k = 0; k < topics; k++) {
 		Topic* topic = all_topics.getMutableTopic(k);
@@ -147,7 +151,9 @@ void AuthorUtils::SampleTableForWord(Author* author,
 		log_pr[t] = log_word_count + f[k];
 	}
 
+	log_pr[tables] = log(alpha) + f[topics];
 	int sample_table = Utils::SampleFromLogPr(log_pr);
+	
 	
 	// Sampled table is a new table or old.
 	if (sample_table == tables) {
@@ -158,6 +164,8 @@ void AuthorUtils::SampleTableForWord(Author* author,
 		
 		int sample_topic = Utils::SampleFromLogPr(log_pr_topic);
 		if (sample_topic == topics) {
+			cout << "new topic added." << endl;
+			
 			// Sampled topic is new.
 			all_topics.addNewTopic(corpus_word_no);	
 		}
@@ -213,6 +221,20 @@ void AuthorUtils::SampleTopics(Author* author,
 }
 
 
+void AuthorUtils::GetTopicsForAuthor(Author* author,
+												 				 		 vector<int>& topic_counts,
+												 				 		 unordered_map<Topic*, int>& topic_ids) {
+	int tables = author->getTables();
+	for (int i = 0; i < tables; i++) {
+		Table* table = author->getMutableTable(i);
+		Topic* topic = table->getMutableTopic();
+		auto found = topic_ids.find(topic);
+		assert(found != topic_ids.end());
+		int topic_id = found->second;
+		topic_counts[topic_id] += table->getWordCount();
+	}
+
+}
 // =======================================================================
 // AllAuthors
 // =======================================================================
@@ -228,4 +250,33 @@ AllAuthors::~AllAuthors() {
 		author = nullptr;
 	}
 }
+
+// =======================================================================
+// AllAuthorsUtils
+// =======================================================================
+
+void AllAuthorsUtils::SaveAuthors(const string& filename_author_counts) {
+	ofstream ofs(filename_author_counts);
+	AllTopics& all_topics = AllTopics::GetInstance();
+	int topics = all_topics.getTopics();
+	unordered_map<Topic*, int> m = all_topics.getTopicIds();
+	vector<int> topic_counts(topics, 0);
+	AllAuthors& all_authors = AllAuthors::GetInstance();
+	int authors = all_authors.getAuthors();
+
+
+	for (int i = 0; i < authors; i++) {
+		Author* author = all_authors.getMutableAuthor(i);
+		AuthorUtils::GetTopicsForAuthor(author, topic_counts, m);
+		
+		for (auto& count : topic_counts) {
+			ofs << count << " ";
+		}
+		ofs << endl;
+
+		fill(begin(topic_counts), end(topic_counts), 0);
+	}
+	ofs.close();
+}
+
 } // ahdp

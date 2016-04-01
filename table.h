@@ -54,8 +54,8 @@ static void UpdateTopicFromTable(Table* table,
 
 // Update topic's statistics from all the words from table.
 static void UpdateTopicFromTable(Table* table,
-																 vector<int>& word_ids,
-																 vector<int>& counts,
+																 const vector<int>& word_ids,
+																 const vector<int>& counts,
 																 int update);
 
 // Sample a topic for a table.

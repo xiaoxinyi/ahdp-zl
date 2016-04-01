@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <gsl/gsl_sf.h>
+#include <unordered_map>
 
 using namespace std;
 
@@ -30,7 +31,7 @@ public:
 	int getWordCount(int word_id) const { return word_counts_[word_id]; }
 
 	int getTableCount() const { return table_count_; }
-	void setTableCount(int table_count) { table_count = table_count_; }
+	void setTableCount(int table_count) { table_count_ = table_count; }
 	void updateTableCount(int update) { table_count_ += update; }
 
 	double getLogWordPr(int word_id);
@@ -60,7 +61,10 @@ public:
 
 	static void PrintTopicInfo(Topic* topic);
 
-	static void SaveTopic(Topic* topic, ofstream& ofs);
+	static void SaveTopic(Topic* topic, 
+												ofstream& ofs,
+												ofstream& ofs_counts);
+
 };
 
 
@@ -76,8 +80,8 @@ public:
 	// counts - corresponding counts.
 	static double LogGammaRatio(Table* table,
 											 				Topic* topic,
-											 				vector<int>& word_ids,
-											 				vector<int>& counts);
+											 				const vector<int>& word_ids,
+											 				const vector<int>& counts);
 };
 
 
@@ -111,6 +115,8 @@ public:
 	int getEta() const { return eta_; }
 	void setEta(const int& eta) { eta_ = eta; }
 
+	unordered_map<Topic*, int> getTopicIds();
+
 private:
 	// All topics.
 	vector<Topic*> topic_ptrs_;
@@ -119,7 +125,7 @@ private:
 	double eta_; 
 
 	// Private constructor.
-	AllTopics() { }
+	AllTopics() { topic_ptrs_.reserve(2000); }
 	
 };
 
@@ -137,7 +143,10 @@ public:
 
 	static void PrintTopicsInfo();
 
-	static void SaveTopics(const string& filename);
+	static void SaveTopics(const string& filename_topics,
+												 const string& filename_topics_counts);
+
+	static int GetWordNo();
 };
 
 

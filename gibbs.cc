@@ -48,10 +48,10 @@ double GibbsState::computeGibbsScore() {
   eta_score_ = AllTopicsUtils::EtaScore();
   gamma_score_ = AllTopicsUtils::GammaScore(corpus_.getGamma());
   score_ = alpha_score_ + eta_score_ + gamma_score_;
-  cout << "Alpha_score: " << alpha_score_ << endl;
-  cout << "Eta_score: " << eta_score_ << endl;
-  cout << "Gamma_score: " << gamma_score_ << endl;
-  cout << "Score: " << score_ << endl;
+  // cout << "Alpha_score: " << alpha_score_ << endl;
+  // cout << "Eta_score: " << eta_score_ << endl;
+  // cout << "Gamma_score: " << gamma_score_ << endl;
+  // cout << "Score: " << score_ << endl;
 
   // Update the maximum score if necessary.
   if (score_ > max_score_ || iteration_ == 0) {
@@ -78,7 +78,7 @@ void GibbsSampler::ReadGibbsInput(
   		sample_alpha = DEFUALT_SAMPLE_ALPHA, 
   		sample_gamma = DEFAULT_SAMPLE_GAMMA;
   
-  double alpha, gamma, eta;
+  double alpha, gamma = 1.0, eta = 1.0;
 
   while (infile.getline(buf, BUF_SIZE)) {
     istringstream s_line(buf);
@@ -133,14 +133,12 @@ void GibbsSampler::InitGibbsState(
   for (int i = 0; i < corpus->getDocuments(); i++) {
     Document* document = corpus->getMutableDocument(i);
     DocumentUtils::SampleAuthors(document, 1, false);
-
-    
-
 	}
 
 	AllAuthors& all_authors = AllAuthors::GetInstance();
 	int authors = all_authors.getAuthors();
-
+	
+	AllTopics& all_topics = AllTopics::GetInstance();
 	for (int i = 0; i < authors; i++) {
 		Author* author = all_authors.getMutableAuthor(i);
 
@@ -151,8 +149,10 @@ void GibbsSampler::InitGibbsState(
 
     AuthorUtils::SampleTopics(author, gamma, false);
 
-    AllTopics::GetInstance().compactTopics();
+    all_topics.compactTopics();
 	}
+
+  cout << AllTopicsUtils::GetWordNo() << endl;
 
   // Compute the Gibbs score.
   double gibbs_score = gibbs_state->computeGibbsScore();
@@ -202,9 +202,6 @@ void GibbsSampler::IterateGibbsState(GibbsState* gibbs_state) {
   gibbs_state->incIteration(1);
   int current_iteration = gibbs_state->getIteration();
 
-  if (gibbs_state->getIteration() == 58) {
-  	cout << endl;
-  }
   cout << "Start iteration..." << gibbs_state->getIteration() << endl;
 
   // Determine value for permute.
@@ -235,6 +232,8 @@ void GibbsSampler::IterateGibbsState(GibbsState* gibbs_state) {
 
 	AllAuthors& all_authors = AllAuthors::GetInstance();
 	int authors = all_authors.getAuthors();
+	
+	AllTopics& all_topics = AllTopics::GetInstance();
 
 	for (int i = 0; i < authors; i++) {
 		Author* author = all_authors.getMutableAuthor(i);
@@ -246,8 +245,10 @@ void GibbsSampler::IterateGibbsState(GibbsState* gibbs_state) {
 
     AuthorUtils::SampleTopics(author, gamma, true);
 
-    AllTopics::GetInstance().compactTopics();
+    all_topics.compactTopics();
 	}
+
+  cout << AllTopicsUtils::GetWordNo() << endl;
 
   // Sample hyper-parameters.
   if (gibbs_state->getHyperLag() > 0 &&
