@@ -8,7 +8,7 @@
 #include "gibbs.h"
 #include "document.h"
 #include "author.h"
-
+#include "state.h"
 
 #define REP_NO 1
 #define DEFAULT_HYPER_LAG 0
@@ -199,6 +199,8 @@ void GibbsSampler::IterateGibbsState(GibbsState* gibbs_state) {
   assert(gibbs_state != NULL);
 
   Corpus* corpus = gibbs_state->getMutableCorpus();
+	AllAuthors& all_authors = AllAuthors::GetInstance();
+	AllTopics& all_topics = AllTopics::GetInstance();
   gibbs_state->incIteration(1);
   int current_iteration = gibbs_state->getIteration();
 
@@ -230,10 +232,10 @@ void GibbsSampler::IterateGibbsState(GibbsState* gibbs_state) {
     DocumentUtils::SampleAuthors(document, 1, true);
 	}
 
-	AllAuthors& all_authors = AllAuthors::GetInstance();
+	
 	int authors = all_authors.getAuthors();
 	
-	AllTopics& all_topics = AllTopics::GetInstance();
+	
 
 	for (int i = 0; i < authors; i++) {
 		Author* author = all_authors.getMutableAuthor(i);

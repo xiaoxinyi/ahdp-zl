@@ -1,11 +1,14 @@
 #include <math.h>
 #include <assert.h>
 
+#include <iostream>
 
 #include "utils.h"
 #include "document.h"
 #include "author.h"
 #include "table.h"
+#include "state.h"
+
 
 namespace ahdp {
 
@@ -45,10 +48,9 @@ void WordUtils::UpdateAuthorFromWord(Word* word,
 	UpdateTableFromWord(word, update);
 
 	// Set removed word's table and topic nullptr.
-	if (update == -1) {
-		Table* table = word->getMutableTable();		
-		table->setTopic(nullptr);
+	if (update == -1) {		
 		word->setTable(nullptr);
+		word->setAuthorId(-1);
 	}
 }
 
@@ -130,6 +132,7 @@ void DocumentUtils::SampleAuthors(Document* document,
 	for (int i = 0; i < words; i++) {
 		Word* word = document->getMutableWord(i);
 		SampleAuthorForWord(document, word, remove);
+			
 	}
 }
 

@@ -35,12 +35,13 @@ void Table::updateWordCount(int word_id, int update) {
 	auto it = word_counts_.find(word_id);
 	if (it == word_counts_.end()) {
 		word_counts_[word_id] = update;
+		return;
 	} else {
 		word_counts_[word_id] += update;
 	}
 	assert(word_counts_[word_id] >= 0);
-	if (word_counts_[word_id] == 0) {
-		word_counts_.erase(word_id);
+	if (it->second == 0) {
+		word_counts_.erase(it);
 	}
 	return;
 }
@@ -61,6 +62,7 @@ void TableUtils::UpdateTopicFromTable(Table* table,
 
 	if (table->getWordCount() == 0 and update == -1) {
 		topic->updateTableCount(-1);
+		table->setTopic(nullptr);
 	}
 
 	topic->updateWordCount(update);

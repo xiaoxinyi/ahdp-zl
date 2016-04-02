@@ -2,17 +2,20 @@
 
 #include "gibbs.h"
 #include "author.h"
+#include "state.h"
 
 using ahdp::GibbsSampler;
 using ahdp::GibbsState;
 using ahdp::AllTopicsUtils;
 using ahdp::AllAuthorsUtils;
+using namespace ahdp;
 
 #define MAX_ITERATIONS 100
 const string DIR = "~/code/cplusplus/atm-zl/";
 const string FILENAME_TOPICS = "result/train-topics-final.dat";
 const string FILENAME_TOPICS_COUNTS = "result/train-topics-counts-final.dat";
 const string FILENAME_AUTHOR_COUNTS = "result/train-author-counts-final.dat";
+
 
 int main(int argc, char** argv) {
   if (argc == 4) {
@@ -29,8 +32,10 @@ int main(int argc, char** argv) {
         filename_settings, rng_seed);
 
     for (int i = 0; i < MAX_ITERATIONS; i++) {
+      StateUtils::CheckSum();
       ahdp::GibbsSampler::IterateGibbsState(gibbs_state);
     }
+    StateUtils::CheckSum();
     AllTopicsUtils::SaveTopics(FILENAME_TOPICS, FILENAME_TOPICS_COUNTS);
     AllAuthorsUtils::SaveAuthors(FILENAME_AUTHOR_COUNTS);
 

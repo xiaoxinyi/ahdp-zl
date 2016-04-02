@@ -1,7 +1,7 @@
 # The Makefile for the C++ implementation of Hd.p
 
 COMPILER = g++
-OBJS = utils.o topic.o document.o corpus.o gibbs.o ahdp_main.o table.o author.o
+OBJS = utils.o topic.o document.o corpus.o gibbs.o ahdp_main.o table.o author.o state.o
 SOURCE = $(OBJS:.o=.cc)
 
 FLAGS = -g -Wall  -I/usr/local/Cellar/gsl/1.16/include -std=c++11

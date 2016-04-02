@@ -9,6 +9,8 @@
 #include "table.h"
 #include "document.h"
 #include "topic.h"
+#include "state.h"
+
 
 namespace ahdp {
 
@@ -164,8 +166,6 @@ void AuthorUtils::SampleTableForWord(Author* author,
 		
 		int sample_topic = Utils::SampleFromLogPr(log_pr_topic);
 		if (sample_topic == topics) {
-			cout << "new topic added." << endl;
-			
 			// Sampled topic is new.
 			all_topics.addNewTopic(corpus_word_no);	
 		}
@@ -214,6 +214,7 @@ void AuthorUtils::SampleTopics(Author* author,
 															double gamma, 
 															bool remove) {
 	int tables = author->getTables();
+	
 	for (int i = 0; i < tables; i++) {
 		Table* table = author->getMutableTable(i);
 		TableUtils::SampleTopicForTable(table, gamma, remove);
