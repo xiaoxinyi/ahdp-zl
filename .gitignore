@@ -1,5 +1,6 @@
 ###C++###
 .tags*
+*.dYSM
 
 # Compiled Object files
 *.slo
