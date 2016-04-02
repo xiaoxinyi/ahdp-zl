@@ -91,6 +91,14 @@ public:
 													 double gamma, 
 													 bool remove); 
 
+	static void RandomSampleTopics(Author* author); 
+
+
+	static void RandomSampleTableForWord(Author* author,
+																			 Word* word);
+
+	static void RandomSampleTables(Author* author);
+
 	static void GetTopicsForAuthor(Author* author,
 												 				 vector<int>& topic_counts,
 												 				 unordered_map<Topic*, int>& topic_ids);

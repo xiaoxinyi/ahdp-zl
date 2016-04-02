@@ -185,6 +185,30 @@ void AuthorUtils::SampleTableForWord(Author* author,
 	WordUtils::UpdateTableFromWord(word, 1);
 }
 
+void AuthorUtils::RandomSampleTables(Author* author) {
+	
+	int words = author->getWordCount();
+	for (int i = 0; i < words; i++) {
+		Word* word = author->getMutableWord(i);
+		RandomSampleTableForWord(author, word);
+	}
+}
+
+void AuthorUtils::RandomSampleTableForWord(Author* author,
+																					 Word* word) {
+
+	int tables = author->getTables();
+	vector<double> log_pr(tables, log(1.0 / tables));
+	int sample_table_idx = Utils::SampleFromLogPr(log_pr);
+	
+	Table* sample_table = author->getMutableTable(sample_table_idx);
+	if (word->getMutableTable() != sample_table) {
+		WordUtils::UpdateTableFromWord(word, -1);
+		word->setTable(sample_table);
+		WordUtils::UpdateTableFromWord(word, 1);
+	}
+
+}
 
 double AuthorUtils::AlphaScore(Author* author, 
 													 			 double alpha) {
@@ -218,6 +242,15 @@ void AuthorUtils::SampleTopics(Author* author,
 	for (int i = 0; i < tables; i++) {
 		Table* table = author->getMutableTable(i);
 		TableUtils::SampleTopicForTable(table, gamma, remove);
+	}
+}
+
+void AuthorUtils::RandomSampleTopics(Author* author) {
+	int tables = author->getTables();
+	
+	for (int i = 0; i < tables; i++) {
+		Table* table = author->getMutableTable(i);
+		TableUtils::RandomSampleTopicForTable(table);
 	}
 }
 

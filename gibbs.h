@@ -117,6 +117,8 @@ class GibbsSampler {
   // Sample the document path and the word levels in the tree.
   // Sample hyperparameters: Eta, GEM mean and scale.
   static void IterateGibbsState(GibbsState* gibbs_state);
+
+  static void RandomIterateGibbsState(GibbsState* gibbs_state);
 };
 
 }  // namespace ahdp

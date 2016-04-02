@@ -30,6 +30,9 @@ int main(int argc, char** argv) {
     ahdp::GibbsState* gibbs_state = ahdp::GibbsSampler::InitGibbsStateRep(
         filename_corpus, filename_authors,
         filename_settings, rng_seed);
+    StateUtils::CheckSum();
+    
+    GibbsSampler::RandomIterateGibbsState(gibbs_state);
 
     for (int i = 0; i < MAX_ITERATIONS; i++) {
       StateUtils::CheckSum();

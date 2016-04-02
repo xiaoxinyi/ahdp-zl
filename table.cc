@@ -155,4 +155,26 @@ void TableUtils::SampleTopicForTable(Table* table,
 
 }
 
+void TableUtils::RandomSampleTopicForTable(Table* table) {
+	AllTopics& all_topics = AllTopics::GetInstance();
+	int topics = all_topics.getTopics();
+
+	vector<int> word_ids;
+	vector<int> counts;
+	TableUtils::GetWordsAndCounts(table, word_ids, counts);
+
+
+	vector<double> log_pr(topics, log(1.0 / topics));
+	int sample_topic = Utils::SampleFromLogPr(log_pr);
+	Topic* old_topic = table->getMutableTopic();
+	Topic* new_topic = all_topics.getMutableTopic(sample_topic);
+
+	if (old_topic != new_topic) {
+		TableUtils::UpdateTopicFromTable(table, word_ids, counts, -1);	
+
+		table->setTopic(new_topic);
+		TableUtils::UpdateTopicFromTable(table, word_ids, counts, 1);
+	}
+}
+
 } // ahdp

@@ -62,6 +62,9 @@ static void UpdateTopicFromTable(Table* table,
 static void SampleTopicForTable(Table* table, 
 																double gamma,
 																bool remove);
+
+static void RandomSampleTopicForTable(Table* table);
+
 // Get word_ids and counts in the table.
 static void GetWordsAndCounts(Table* table,
 															vector<int>& word_ids,

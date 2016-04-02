@@ -232,10 +232,7 @@ void GibbsSampler::IterateGibbsState(GibbsState* gibbs_state) {
     DocumentUtils::SampleAuthors(document, 1, true);
 	}
 
-	
 	int authors = all_authors.getAuthors();
-	
-	
 
 	for (int i = 0; i < authors; i++) {
 		Author* author = all_authors.getMutableAuthor(i);
@@ -265,6 +262,43 @@ void GibbsSampler::IterateGibbsState(GibbsState* gibbs_state) {
     	// TODO
     }
   }
+
+  // Compute the Gibbs score with the new parameter values.
+  double gibbs_score = gibbs_state->computeGibbsScore();
+
+  cout << "Gibbs score at iteration "
+       << gibbs_state->getIteration() << " = " << gibbs_score << endl;
+}
+
+
+void GibbsSampler::RandomIterateGibbsState(GibbsState* gibbs_state) {
+  assert(gibbs_state != NULL);
+
+  Corpus* corpus = gibbs_state->getMutableCorpus();
+  AllAuthors& all_authors = AllAuthors::GetInstance();
+  AllTopics& all_topics = AllTopics::GetInstance();
+
+
+  for (int i = 0; i < corpus->getDocuments(); i++) {
+    Document* document = corpus->getMutableDocument(i);
+    DocumentUtils::SampleAuthors(document, 1, true);
+  }
+
+  int authors = all_authors.getAuthors();
+
+  for (int i = 0; i < authors; i++) {
+    Author* author = all_authors.getMutableAuthor(i);
+
+    AuthorUtils::RandomSampleTables(author);
+    AuthorUtils::CompactTables(author);
+
+    AuthorUtils::RandomSampleTopics(author);
+
+    all_topics.compactTopics();
+  }
+
+  cout << AllTopicsUtils::GetWordNo() << endl;
+
 
   // Compute the Gibbs score with the new parameter values.
   double gibbs_score = gibbs_state->computeGibbsScore();
